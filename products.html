@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore - Shop All</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">MyStore</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="login.html">Account</a>
+        </nav>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" id="product-search" placeholder="Search products..." onkeyup="filterProducts()">
+                <button onclick="filterProducts()"><i class="fas fa-search"></i></button>
+            </div>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="product-page-main">
+        <h2>Shop All Products</h2>
+        <div class="shop-layout">
+            
+            <aside class="sidebar">
+                <h3>Filter By</h3>
+                
+                <div class="filter-group">
+                    <h4>Category</h4>
+                    <label><input type="checkbox" name="category" value="laptops" onchange="filterProducts()"> Laptops</label>
+                    <label><input type="checkbox" name="category" value="audio" onchange="filterProducts()"> Audio</label>
+                    <label><input type="checkbox" name="category" value="smartphones" onchange="filterProducts()"> Smartphones</label>
+                    <label><input type="checkbox" name="category" value="accessories" onchange="filterProducts()"> Accessories</label>
+                </div>
+                
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <label for="price-max">Max Price: $<span id="price-value">500</span></label>
+                    <input type="range" id="price-max" min="0" max="1000" value="500" step="50" oninput="document.getElementById('price-value').textContent = this.value; filterProducts()">
+                </div>
+
+                <button class="reset-button" onclick="resetFilters()">Reset Filters</button>
+            </aside>
+            
+            <section class="product-listing">
+                <div class="product-grid" id="product-grid">
+                    
+                    <div class="product-card" data-category="laptops" data-price="999.99" data-name="XPS 13 Ultra Laptop">
+                        
+
+[Image of a silver laptop]
+
+                        <h3>XPS 13 Ultra Laptop</h3>
+                        <p class="product-price">$999.99</p>
+                        <a href="details.html?id=201" class="details-button">View Details</a>
+                        <button onclick="addToCart(201)" class="add-to-cart-small"><i class="fas fa-cart-plus"></i> Add</button>
+                    </div>
+                    
+                    <div class="product-card" data-category="audio" data-price="199.99" data-name="Noise-Cancelling Earbuds">
+                        
+                        <h3>Noise-Cancelling Earbuds</h3>
+                        <p class="product-price">$199.99</p>
+                        <a href="details.html?id=202" class="details-button">View Details</a>
+                        <button onclick="addToCart(202)" class="add-to-cart-small"><i class="fas fa-cart-plus"></i> Add</button>
+                    </div>
+
+                    <div class="product-card" data-category="smartphones" data-price="799.00" data-name="Nova Z Smartphone">
+                        
+
+[Image of a sleek black smartphone]
+
+                        <h3>Nova Z Smartphone</h3>
+                        <p class="product-price">$799.00</p>
+                        <a href="details.html?id=203" class="details-button">View Details</a>
+                        <button onclick="addToCart(203)" class="add-to-cart-small"><i class="fas fa-cart-plus"></i> Add</button>
+                    </div>
+
+                    <div class="product-card" data-category="accessories" data-price="49.50" data-name="Fast Charging USB Hub">
+                        
+                        <h3>Fast Charging USB Hub</h3>
+                        <p class="product-price">$49.50</p>
+                        <a href="details.html?id=204" class="details-button">View Details</a>
+                        <button onclick="addToCart(204)" class="add-to-cart-small"><i class="fas fa-cart-plus"></i> Add</button>
+                    </div>
+
+                    <div class="product-card" data-category="audio" data-price="350.00" data-name="Studio Reference Speakers">
+                        
+                        <h3>Studio Reference Speakers</h3>
+                        <p class="product-price">$350.00</p>
+                        <a href="details.html?id=205" class="details-button">View Details</a>
+                        <button onclick="addToCart(205)" class="add-to-cart-small"><i class="fas fa-cart-plus"></i> Add</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore - Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Specific styling for the form section */
+        .auth-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            display: flex;
+            gap: 30px;
+        }
+        .form-section {
+            flex: 1;
+            padding: 15px;
+            border-left: 1px solid #eee;
+        }
+        .form-section:first-child {
+            border-left: none;
+        }
+        .form-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        .form-section input[type="text"], 
+        .form-section input[type="email"], 
+        .form-section input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-section button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-section button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">MyStore</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="login.html">Account</a>
+        </nav>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            
+            <div class="form-section">
+                <h2>Login</h2>
+                <form id="login-form" action="#">
+                    <input type="email" id="login-email" name="email" placeholder="Email Address" required>
+                    <input type="password" id="login-password" name="password" placeholder="Password" required>
+                    <button type="submit">Log In</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em;"><a href="#">Forgot Password?</a></p>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h2>Create Account</h2>
+                <form id="signup-form" action="#">
+                    <input type="text" id="signup-name" name="name" placeholder="Full Name" required>
+                    <input type="email" id="signup-email" name="email" placeholder="Email Address" required>
+                    <input type="password" id="signup-password" name="password" placeholder="Create Password" required>
+                    <input type="password" id="signup-confirm" name="confirm_password" placeholder="Confirm Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

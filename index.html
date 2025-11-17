@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore - Classic Commercial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #28a745;
+            --background-light: #ffffff; 
+            --background-gray: #f8f9fa; 
+            --text-dark: #333;
+            --text-muted: #6c757d;
+        }
+
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        
+        header {
+            background-color: var(--background-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: none;
+        }
+        header a {
+            color: var(--text-dark);
+        }
+        header a:hover {
+            color: var(--primary-color);
+        }
+        .logo a {
+            color: var(--primary-color) !important;
+            text-shadow: none;
+        }
+        
+        
+        .hero-section {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 5%;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url("https://placehold.co/1920x800/e9ecef/007bff?text=Modern+Electronics") center/cover no-repeat;
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-section h1 {
+            font-size: 4.5em;
+            margin: 0;
+            line-height: 1.1;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: none;
+            letter-spacing: normal;
+            text-shadow: none; 
+        }
+
+        .hero-section p {
+            font-size: 1.5em;
+            margin: 20px 0 40px 0;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            padding: 16px 40px;
+            background: var(--primary-color);
+            color: var(--background-light);
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+        }
+        .hero-cta:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        
+        .collection-spotlight {
+            padding: 80px 5%;
+            background-color: var(--background-gray);
+            text-align: center;
+        }
+        .collection-spotlight h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+            text-transform: capitalize;
+            letter-spacing: normal;
+        }
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .collection-card {
+            display: block;
+            background-color: var(--background-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: var(--text-dark);
+            border: 1px solid #e0e0e0;
+        }
+        .collection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .collection-card-image {
+            height: 300px;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(0.9);
+            transition: filter 0.3s;
+        }
+        .collection-card:hover .collection-card-image {
+            filter: brightness(1);
+        }
+
+
+        .collection-card:nth-child(1) .collection-card-image { 
+            background-image: url("https://images.pexels.com/photos/7689881/pexels-photo-7689881.jpeg");
+        }
+        .collection-card:nth-child(2) .collection-card-image { 
+            background-image: url("https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg");
+        }
+        .collection-card:nth-child(3) .collection-card-image { 
+            background-image: url("https://images.pexels.com/photos/207589/pexels-photo-207589.jpeg");
+        }
+
+        .collection-card-info {
+            padding: 20px;
+            text-align: left;
+        }
+        .collection-card-info h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            border-bottom: none;
+            padding-bottom: 0;
+            display: block;
+        }
+        .collection-card-info p {
+            margin-top: 5px;
+            font-size: 1em;
+            color: var(--text-muted);
+        }
+        
+
+        .trust-banner {
+            background: var(--background-light);
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+        .trust-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .trust-item {
+            flex-basis: 250px;
+            padding: 15px;
+            border: none;
+            border-radius: 0;
+        }
+        .trust-item i {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .trust-item h4 {
+            font-size: 1.1em;
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+
+        @media (max-width: 900px) {
+            .hero-section { min-height: 50vh; padding-top: 60px; padding-bottom: 60px; }
+            .hero-section h1 { font-size: 3em; }
+            .collection-spotlight { padding: 60px 5%; }
+            .collection-spotlight h2 { font-size: 2em; }
+            .collection-grid { grid-template-columns: 1fr; }
+            .collection-card-image { height: 200px; }
+            .trust-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+   <header>
+        <div class="logo"><a href="index.html">MyStore</a></div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="products.html"><i class="fas fa-box"></i> Shop All</a> 
+            <a href="login.html" class="cta-link" style="background-color: var(--primary-color); color: white; padding: 8px 15px; border-radius: 4px;"><i class="fas fa-user-lock"></i> Account</a>
+        </nav>
+        <div class="header-actions">
+<div class="search-bar">
+                <input type="text" placeholder="Search products..." style="background: #eee; border: 1px solid #ccc; color: var(--text-dark);">
+                <button style="background: var(--primary-color); color: white;"><i class="fas fa-search"></i></button>
+            </div>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Quality Technology. Reliable Service.</h1>
+            <p>Discover our exclusive catalog of electronics and accessories, trusted by thousands of customers globally.</p>
+            
+            <a href="login.html" class="hero-cta">
+                <i class="fas fa-shopping-bag"></i> Browse Collections
+            </a>
+        </section>
+
+<section class="collection-spotlight">
+            <h2>Shop By Category</h2>
+            <div class="collection-grid">
+                
+                <a href="login.html" class="collection-card">
+                    <div class="collection-card-image"></div>
+                    <div class="collection-card-info">
+                        <h3>Laptops & Desktops</h3>
+                        <p>High performance for work and creativity.</p>
+                    </div>
+                </a>
+                
+                <a href="login.html" class="collection-card">
+                    <div class="collection-card-image"></div>
+                    <div class="collection-card-info">
+                        <h3>Headphones & Audio</h3>
+                        <p>Immersive sound quality for every listener.</p>
+                    </div>
+                </a>
+
+                <a href="login.html" class="collection-card">
+                    <div class="collection-card-image"></div>
+                    <div class="collection-card-info">
+                        <h3>Smartphones & Wearables</h3>
+                        <p>Stay connected with the latest mobile tech.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        section class="trust-banner">
+            <h2>Committed to Your Experience</h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <i class="fas fa-undo-alt"></i>
+                    <h4>Easy Returns</h4>
+                    <p style="color: var(--text-muted);">30-day money-back guarantee.</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-star-half-alt"></i>
+                    <h4>Customer Rated 4.9/5</h4>
+                    <p style="color: var(--text-muted);">See what our community says.</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-truck"></i>
+                    <h4>Free Shipping</h4>
+                    <p style="color: var(--text-muted);">On all orders over $75.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    footer>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>

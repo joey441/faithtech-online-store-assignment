@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore - Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Cart Specific Styles */
+        .cart-container {
+            padding: 40px 5%;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        .cart-item-details {
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+        .cart-item-details h4 {
+            margin-bottom: 5px;
+        }
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            overflow: hidden;
+            /* Placeholder styling */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            text-align: center;
+        }
+        .item-quantity input {
+            width: 50px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .item-total {
+            width: 100px;
+            font-weight: bold;
+            text-align: right;
+            color: var(--primary-color);
+        }
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+
+        /* Cart Summary */
+        .cart-summary {
+            max-width: 400px;
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            float: right;
+        }
+        .cart-summary p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-summary h3 {
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 600px) {
+            .cart-item {
+                flex-wrap: wrap;
+                text-align: center;
+            }
+            .cart-item-details, .item-quantity, .item-total {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .cart-item-image {
+                margin: 0 auto;
+            }
+            .cart-summary {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">MyStore</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="login.html">Account</a>
+        </nav>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <h1>Your Shopping Cart</h1>
+            
+            <div id="cart-items-container">
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        
+                    </div>
+                    <div class="cart-item-details">
+                        <h4>Aura X Headphones</h4>
+                        <p style="font-size: 0.9em;">Price: $199.99</p>
+                    </div>
+                    <div class="item-quantity">
+                        <input type="number" value="1" min="1" onchange="updateCartItem(101, this.value)">
+                    </div>
+                    <div class="item-total">$199.99</div>
+                    <button class="remove-btn" onclick="removeItemFromCart(101)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h2>Cart Summary</h2>
+                <p>Subtotal: <span id="cart-subtotal">$0.00</span></p>
+                <p>Shipping: <span>$15.00</span></p>
+                <h3>Order Total: <span id="cart-total">$15.00</span></h3>
+                <a href="payment.html" class="checkout-btn">Proceed to Checkout</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

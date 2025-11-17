@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore - Order Confirmed!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Confirmation Specific Styles */
+        .confirmation-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            text-align: center;
+            background: #fff;
+            border: 2px solid #28a745; /* Success color */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .confirmation-container h1 {
+            color: #28a745;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .confirmation-container .icon {
+            font-size: 5em;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .confirmation-summary {
+            text-align: left;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .confirmation-summary p {
+            margin-bottom: 10px;
+        }
+        .back-to-shop {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">MyStore</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="login.html">Account</a>
+        </nav>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="confirmation-container">
+            <div class="icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Order Confirmed!</h1>
+            <p>Thank you for your purchase. Your order has been placed and is being processed.</p>
+            <p style="font-weight: bold;">Order Tracking Number: #MS20257912</p>
+
+            <div class="confirmation-summary">
+                <h3>Order Summary</h3>
+                <p>Total Charged: <strong style="color: #28a745;">$914.99</strong> (Placeholder Total)</p>
+                <p>Payment Method: Visa ending in 4242</p>
+                <p>Shipping Address: 123 Main St, New York, 10001</p>
+                <p>Estimated Delivery: November 25, 2025</p>
+            </div>
+
+            <a href="index.html" class="back-to-shop">
+                <i class="fas fa-home"></i> Continue Shopping
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        // --- Confirmation Page Specific JS ---
+        // Clear the cart when the user lands on the confirmation page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if the global JS functions are loaded before running
+            if (typeof localStorage !== 'undefined') {
+                localStorage.removeItem('shoppingCart');
+                
+                // Update the cart count in the header to zero instantly
+                const cartCountElement = document.getElementById('cart-count');
+                if (cartCountElement) {
+                    cartCountElement.textContent = '0';
+                }
+            }
+        });
+        // Note: The main script.js should still be linked last.
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

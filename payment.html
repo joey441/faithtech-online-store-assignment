@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore - Payment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Payment Form Specific Styles */
+        .checkout-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .checkout-container h1, .checkout-container h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        #payment-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        #payment-form input[type="text"], 
+        #payment-form input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-row > div {
+            flex: 1;
+        }
+        .place-order-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745; /* Green for final action */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .place-order-btn:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">MyStore</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="login.html">Account</a>
+        </nav>
+        <div class="header-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="checkout-container">
+            <h1>Secure Checkout</h1>
+
+            <form id="payment-form">
+                
+                <h3><i class="fas fa-shipping-fast"></i> Shipping Information</h3>
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="name" placeholder="John Doe" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+
+                <label for="address">Street Address</label>
+                <input type="text" id="address" name="address" placeholder="123 Main St" required>
+
+                <div class="form-row">
+                    <div>
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="New York" required>
+                    </div>
+                    <div>
+                        <label for="zip">Zip Code</label>
+                        <input type="text" id="zip" name="zip" placeholder="10001" required>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 40px;"><i class="fas fa-credit-card"></i> Payment Details</h3>
+                <label for="cc-number">Credit Card Number</label>
+                <input type="text" id="cc-number" name="cc-number" placeholder="XXXX XXXX XXXX XXXX" required>
+
+                <div class="form-row">
+                    <div>
+                        <label for="expiry">Expiry Date (MM/YY)</label>
+                        <input type="text" id="expiry" name="expiry" placeholder="12/26" required>
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="place-order-btn">
+                    <i class="fas fa-lock"></i> Pay & Place Order
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
